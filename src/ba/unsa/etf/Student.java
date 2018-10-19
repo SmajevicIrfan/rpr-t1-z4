@@ -39,4 +39,9 @@ public class Student {
     public Student clone() {
         return new Student(this.ime, this.prezime, this.brojIndexa);
     }
+
+    @Override
+    public String toString() {
+        return this.prezime + " " + this.ime + " (" + this.brojIndexa + ")";
+    }
 }

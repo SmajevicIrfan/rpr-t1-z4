@@ -43,4 +43,12 @@ public class Predmet {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        String stringified = "";
+        for (int i = 0; i < brojStudenata; i++)
+            stringified += (i != 0 ? "\n" : "") + (i + 1) + ". " + studenti[i];
+        return stringified;
+    }
 }
