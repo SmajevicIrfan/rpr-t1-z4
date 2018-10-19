@@ -34,4 +34,9 @@ public class Student {
     public int getBrojIndexa() {
         return  this.brojIndexa;
     }
+
+    @Override
+    public Student clone() {
+        return new Student(this.ime, this.prezime, this.brojIndexa);
+    }
 }
