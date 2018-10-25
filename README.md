@@ -22,3 +22,7 @@ Također klasa Predmet treba omogućavati ispis spiska studenata upisanih na pre
 	…
 ```
 1, 2 i 3 su redni brojevi studenata na spisku.
+
+## Za sljedeci tutorijal
+
+Dodati JUnit testove za koje smatrate da su korisni.
