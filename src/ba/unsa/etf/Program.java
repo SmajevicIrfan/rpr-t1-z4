@@ -34,25 +34,26 @@ public class Program {
     }
 
     private static Student kreirajStudenta(String ime, String prezime, int brojIndexa) {
+        Student noviStudent;
         try {
-            Student noviStudent = new Student(ime, prezime, brojIndexa);
-
-            for (int i = 0; i < brojPredmeta; i++) {
-                if (studenti[i].equals(noviStudent)) {
-                    System.out.println("Student vec postoji, ne moze biti dodan");
-                    return null;
-                }
-            }
-
-            studenti[brojStudenata] = noviStudent;
-            brojStudenata++;
-
-            return noviStudent;
+            noviStudent = new Student(ime, prezime, brojIndexa);
         } catch (Exception e) {
             System.out.print("Nemoguce kreirati novog studenta: ");
             System.out.println(e.getMessage());
             return null;
         }
+
+        for (int i = 0; i < brojPredmeta; i++) {
+            if (studenti[i].equals(noviStudent)) {
+                System.out.println("Student vec postoji, ne moze biti dodan");
+                return null;
+            }
+        }
+
+        studenti[brojStudenata] = noviStudent;
+        brojStudenata++;
+
+        return noviStudent;
     }
 
     private static Predmet findPredmet(String sifraPredmeta) {
@@ -182,7 +183,12 @@ public class Program {
             return;
         }
 
-        predmet.ispisi(student);
+        try {
+            predmet.ispisi(student);
+        } catch (Exception e) {
+            System.out.print("Nemoguce ispisati studenta: ");
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void izbrisiPredmet() {
@@ -213,8 +219,9 @@ public class Program {
             return;
         }
 
-        for (int i = 0; i < brojPredmeta; i++)
+        for (int i = 0; i < brojPredmeta; i++) {
             predmeti[i].ispisi(student);
+        }
 
         student = studenti[brojStudenata - 1];
         brojStudenata--;
@@ -245,7 +252,7 @@ public class Program {
         System.out.println("6. Obrisi studenta");
         System.out.println("7. Prikazi spisak svih upisanih studenata na predmetu");
         System.out.println(" -- Bilo koji drugi broj rezultira prekidu programa -- ");
-        System.out.println(" -------------------- ");
+        System.out.println(" ----------------------------------------------------- ");
     }
 
     public static void main(String[] args) {

@@ -62,9 +62,11 @@ public class Predmet {
                 this.studenti[brojStudenata - 1] = null;
                 this.brojStudenata--;
 
-                break;
+                return;
             }
         }
+
+        throw new IllegalArgumentException("Student nije upisan na predmet");
     }
 
     @Override
