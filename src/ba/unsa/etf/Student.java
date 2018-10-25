@@ -44,4 +44,10 @@ public class Student {
     public String toString() {
         return this.prezime + " " + this.ime + " (" + this.brojIndexa + ")";
     }
+
+    public boolean equals(Student student) {
+        return this.prezime.equals(student.prezime) &&
+                this.ime.equals(student.ime) &&
+                this.brojIndexa == student.brojIndexa;
+    }
 }
